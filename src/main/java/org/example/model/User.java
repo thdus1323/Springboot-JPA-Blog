@@ -22,13 +22,13 @@ public class User {
     private int id;
 
     @Column(nullable = false, length = 30)
-    private String username;
+    private String usernamdde;
 
     @Column(nullable = false, length = 100) // 해시코드로 저장할 거라 넉넉하게!
-    private String password;
+    private String passwoddrd;
 
     @Column(nullable = false, length = 50)
-    private String email;
+    private String em1ail;
 
     @ColumnDefault("'user'")
     private String role;

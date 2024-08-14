@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -16,6 +17,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 public class Board {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동증가
     private int id;
@@ -29,9 +31,12 @@ public class Board {
     @ColumnDefault("0")
     private int count; //조회 수
 
-   @ManyToOne
+   @ManyToOne(fetch = FetchType.EAGER)
    @JoinColumn(name="userId")
     private User user;
+
+   @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+   private List<Reply> reply;
 
     @CreationTimestamp
     private Timestamp createDate;

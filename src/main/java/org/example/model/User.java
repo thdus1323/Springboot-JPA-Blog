@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.sql.Timestamp;
 
@@ -15,7 +16,9 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Data
 @Entity
+//@DynamicInsert
 public class User {
+    //user는 아무하고도 연관관계x
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동증가
@@ -30,8 +33,9 @@ public class User {
     @Column(nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'user'")
-    private String role;
+    //@ColumnDefault("'user'")
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     //자동시간입력
     @CreationTimestamp

@@ -5,6 +5,7 @@ import org.example.model.User;
 import org.example.respository.UserRepository;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -37,7 +38,19 @@ public class DummyControllerTest {
         user.setEmail(requestUser.getEmail());
 
         //userRepository.save(user);
-        return null;
+
+        //더티체킹
+        return user;
+    }
+
+    @DeleteMapping("/dummy/user/{id}")
+    public String delete(@PathVariable int id){
+        try{
+            userRepository.deleteById(id);
+        }catch (Exception e){
+            return "삭제에 실패하였습니다. 해당 id는 db에 없습니다.";
+        }
+        return "삭제되었습니다 id : "+id;
     }
 
     //{id} 주소로 파라미터를 전달 받을 수 있다.

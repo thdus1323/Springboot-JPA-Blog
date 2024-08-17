@@ -2,6 +2,10 @@ server:
   port: 8000
   servlet:
     context-path: /blog # 프로젝트 진입점
+    encoding: # 인코딩 방식
+      charset: UTF-8
+      enabled: true
+      force: true
 
 spring:
   mvc:
@@ -21,7 +25,7 @@ spring:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-#      use-new-id-generator-mappings: false
+    #      use-new-id-generator-mappings: false
     show-sql: true
     properties:
       hibernate.format_sql: true

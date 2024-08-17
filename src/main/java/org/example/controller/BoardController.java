@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BoardController {
 
-    @GetMapping({"","/"})
-            public String index(){
-                //WEB-INF/views/index.jsp
-            return "index";
-            }
+    @GetMapping({"", "/"})
+    public String index() {
+        return "layout/index";
+    }
 
 
 }

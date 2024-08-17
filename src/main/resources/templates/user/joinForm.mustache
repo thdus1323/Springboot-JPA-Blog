@@ -1,6 +1,6 @@
 {{> layout/header }}
 
-<form action="/action_page.php" class="mx-5 my-3">
+<form class="mx-5 my-3">
 
     <div class="mb-3 mt-3">
         <label for="username" class="form-label">Username</label>
@@ -16,10 +16,10 @@
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
-
-    <button type="submit" class="btn btn-primary">회원가입완료</button>
 </form>
+<button id="btn-save" class="btn btn-primary">회원가입완료</button>
 
+<script src="/blog/js/user.js"></script>
 {{> layout/footer}}
 
 

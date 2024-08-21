@@ -18,7 +18,7 @@ public class UserApiController { // 이후 앱에도 쓸 수 있음
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api/user")
+    @PostMapping("/auth/joinProc")
     public ResponseDto<Integer> save(@RequestBody User user) { //요청받는 게 json이니까 @Requestbody, user에는 pw, email, username이 담김. user class 중 role이 없음
         System.out.println("UserApiController : save 호출됨"); // 호출이 잘 되는 지 확인
         user.setRole(RoleType.USER); // 그래서 우리가 role 강제 주자.

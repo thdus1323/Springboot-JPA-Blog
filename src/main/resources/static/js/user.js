@@ -32,15 +32,6 @@ let index = {
         }); //ajax 통신을 이용해서 3개의 데이터를 json으로 변경하여  insert 요청
     },
 
-    // login: function(){
-    //     //alert('user의 save 함수 호출됨');
-    //     let data = {
-    //         username: $("#username").val(),
-    //         password: $("#password").val()
-    //     };
-
-
-    // }
 }
 
 index.init(); //index 객체의 init(초기화) 함수 호출
